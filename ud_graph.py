@@ -1,13 +1,13 @@
 # Course: CS261 - Data Structures
 # Author: Hye Yeon Park
-# Assignment: Assignment 6: Graph Implementation
+# Assignment: Graph Implementation - Undirected Graph
 # Description: UndirectedGraph class, designed to support the following type of graph:
-#       undirected, unweighted, no duplicate edges, no loops. Cycles are allowed.
-#       Undirected graphs is stored as a Python dictionary of lists where keys are
-#       vertex names(strings) and associated values are Python lists with names(in any
-#       order) of vertices connected to the 'key' vertex.
-#       e.g.) self.adj_list = {'A': ['B', 'C'], 'B': ['A', 'C', 'D'], 'C': ['B', 'A'], 'D': ['B']}
-#       This implementation includes the following methods:
+# undirected, unweighted, no duplicate edges, no loops. Cycles are allowed.
+# Undirected graphs is stored as a Python dictionary of lists where keys are vertex
+# names(strings) and associated values are Python lists with names(in any order) of
+# vertices connected to the 'key' vertex.
+# e.g.) self.adj_list = {'A': ['B', 'C'], 'B': ['A', 'C', 'D'], 'C': ['B', 'A'], 'D': ['B']}
+# This implementation includes the following methods:
 #               add_vertex(), add_edge()
 #               remove_edge(), remove_vertex()
 #               get_vertices(), get_edges()
@@ -395,7 +395,7 @@ class UndirectedGraph:
 
 
 if __name__ == '__main__':
-    """
+    
     print("\nPDF - method add_vertex() / add_edge example 1")
     print("----------------------------------------------")
     g = UndirectedGraph()
@@ -486,3 +486,5 @@ if __name__ == '__main__':
         u, v = edge
         g.add_edge(u, v) if command == 'add' else g.remove_edge(u, v)
         print('{:<10}'.format(case), g.has_cycle())
+    """
+    
