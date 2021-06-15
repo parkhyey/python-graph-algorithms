@@ -1,6 +1,6 @@
 # graph-methods-algorithms
 
-This is an implementation of Undirected and Directed Graph ADTs.
+This is an implementation of Undirected and Directed Graph ADTs.</br>
 The implementation includes below methods for each graph type: 
 
 ## Undirected Graph (via Adjacency List)
