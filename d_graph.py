@@ -1,6 +1,6 @@
 # Course: CS261 - Data Structures
 # Author: Hye Yeon Park
-# Assignment: Graph Implementation
+# Assignment: Graph Implementation - Directed Graph
 # Description: Implement the DirectedGraph class, which is designed to support the following type of graph:
 # directed, weighted (positive edge weights only), no duplicate edges, no loops. Cycles are allowed.
 # This implementation will include the following methods:
@@ -464,7 +464,7 @@ if __name__ == '__main__':
         print(g.get_edges(), g.has_cycle(), sep='\n')
     print('\n', g)
     
-    """
+    
     print("\nPDF - method has_cycle() example 2")
     print("----------------------------------")
     edges = [(1,0,6), (1,9,5), (1,10,4), (2,0,3), (2,1,2), (3,1,7), 
@@ -472,7 +472,7 @@ if __name__ == '__main__':
     g = DirectedGraph(edges)
     print(g)
     print(g.has_cycle(), sep='\n')
-    """
+    
     
     print("\nPDF - dijkstra() example 1")
     print("--------------------------")
