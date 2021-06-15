@@ -1,9 +1,9 @@
 # Course: CS261 - Data Structures
 # Author: Hye Yeon Park
-# Assignment: Assignment 6: Graph Implementation
-# Description: Implement the DirectedGraph class, designed to support the following type of graph:
-#       directed, weighted (positive edge weights only), no duplicate edges, no loops. Cycles are allowed.
-#       This implementation will include the following methods:
+# Assignment: Graph Implementation
+# Description: Implement the DirectedGraph class, which is designed to support the following type of graph:
+# directed, weighted (positive edge weights only), no duplicate edges, no loops. Cycles are allowed.
+# This implementation will include the following methods:
 #           add_vertex(), add_edge()
 #           remove_edge(), get_vertices(), get_edges()
 #           is_valid_path(), dfs(), bfs()
@@ -361,7 +361,7 @@ class DirectedGraph:
 
 
 if __name__ == '__main__':
-    """
+    
     print("\nPDF - method add_vertex() / add_edge example 1")
     print("----------------------------------------------")
     g = DirectedGraph()
@@ -397,7 +397,7 @@ if __name__ == '__main__':
         print(path, g.is_valid_path(path))
 
 
-    print("\nPDF - method dfs() and bfs() example 1")
+    print("\nPDF - method dfs() and bfs() example")
     print("--------------------------------------")
     edges = [(0, 1, 10), (4, 0, 12), (1, 4, 15), (4, 3, 3),
              (3, 1, 5), (2, 1, 23), (3, 2, 7)]
@@ -407,7 +407,7 @@ if __name__ == '__main__':
         print(f'{start} DFS:{g.dfs(start)} BFS:{g.bfs(start)}')
 
 
-    print("\nPDF - method bfs() example 3")
+    print("\nPDF - method bfs() example 1")
     print("--------------------------------------")
     edges = [(1, 8, 1), (3, 7, 3), (3,10,8), (4,12,15), (5,2,16),
     (5,3,5), (5,8,17), (7,2,3), (7,5,6), (10,2,10), (11,0,4), (11,9,7), (12,7,17), (12,9,15)]
@@ -417,7 +417,7 @@ if __name__ == '__main__':
         print(f'{start} BFS:{g.bfs(start)}')
     # [3, 7, 10, 2, 5, 8]
 
-    print("\nPDF - method bfs() example 4")
+    print("\nPDF - method bfs() example 2")
     print("--------------------------------------")
     edges = [(0,11,3),(2, 3, 14), (2,8,2), (3,7,14), (5,2,10), (5,9,16),
     (7,11,3), (8,11,5), (9,1,17), (9,2,20), (9,11,8), (10,9,10), (11,12,20), (12,2,6)]
@@ -426,18 +426,8 @@ if __name__ == '__main__':
     for start in range(5,6):
         print(f'{start} BFS:{g.bfs(start)}')
     # [5, 2, 9, 3, 8, 1, 11, 7, 12]
-
-    print("\nPDF - method dfs() example 2")
-    print("--------------------------------------")
-    edges = [(2, 5, 7), (2,8,15), (3,1,11), (4,0,18), (6,10,18),
-    (7,0,4), (7,2,15), (7,5,13), (7,6,11), (9,12,15), (11,3,5)]
-    g = DirectedGraph(edges)
-    print(g)
-    for start in range(7, 8):
-        print(f'{start} DFS:{g.dfs(start)} ')
-
-
-    print("\nPDF - method bfs() example 2")
+    
+    print("\nPDF - method bfs() example 3")
     print("--------------------------------------")
     edges = [(0, 1, 3), (0, 7, 5), (2, 10, 16), (3,0,2), (4,6,20), (4,11,13),
     (5,6,5), (5,8,13), (7,12,5), (9,4,17), (12,1,17), (12,2,5)]
@@ -446,8 +436,17 @@ if __name__ == '__main__':
     for start in range(0, 1):
         print(f'{start} BFS:{g.bfs(start)}')
     # [0, 1, 7, 12, 2, 10]
-
     
+    print("\nPDF - method dfs() example 1")
+    print("--------------------------------------")
+    edges = [(2, 5, 7), (2,8,15), (3,1,11), (4,0,18), (6,10,18),
+    (7,0,4), (7,2,15), (7,5,13), (7,6,11), (9,12,15), (11,3,5)]
+    g = DirectedGraph(edges)
+    print(g)
+    for start in range(7, 8):
+        print(f'{start} DFS:{g.dfs(start)} ')
+
+   
     print("\nPDF - method has_cycle() example 1")
     print("----------------------------------")
     edges = [(0, 1, 10), (4, 0, 12), (1, 4, 15), (4, 3, 3),
@@ -464,6 +463,7 @@ if __name__ == '__main__':
         g.add_edge(src, dst)
         print(g.get_edges(), g.has_cycle(), sep='\n')
     print('\n', g)
+    
     """
     print("\nPDF - method has_cycle() example 2")
     print("----------------------------------")
@@ -472,7 +472,6 @@ if __name__ == '__main__':
     g = DirectedGraph(edges)
     print(g)
     print(g.has_cycle(), sep='\n')
-
     """
     
     print("\nPDF - dijkstra() example 1")
@@ -487,3 +486,4 @@ if __name__ == '__main__':
     for i in range(5):
         print(f'DIJKSTRA {i} {g.dijkstra(i)}')
     """
+    
