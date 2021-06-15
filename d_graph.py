@@ -305,7 +305,7 @@ class DirectedGraph:
         Implements the Dijkstra algorithm to compute the length of the shortest path
         from a given vertex to all other vertices in the graph. It returns a list with
         minimum distance for all vertices from SRC.
-        If a certain vertex is not reachable from SRC, returned INFINITY (float(‘inf’)).
+        If a certain vertex is not reachable from SRC, return INFINITY (float(‘inf’)).
         """
         infinity = float('inf')
         vertices = self.get_vertices()
