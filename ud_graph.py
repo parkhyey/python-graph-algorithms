@@ -328,69 +328,46 @@ class UndirectedGraph:
     def has_cycle(self):
         """
         Return True if graph contains a cycle, False otherwise
-        """
-        vertices = self.get_vertices()
-        v_count = len(vertices)
-
-        # create a set to track visited set with boolean values
-        # if visited once, it will remain marked as True
+        """        
+        # create a set to track visited vertices
         visited = {}
-        for i in range(v_count):
-            visited[vertices[i]] = False
 
-        # create a set to track current stack
-        # once disconnected, it will mark back to False
-        stack = {}
-        for i in vertices:
-            stack[i] = False
-
-        # iterate over the vertices to check for cycle
-        for i in range(v_count):
-            if visited[vertices[i]] == False:
-                if self.has_cycle_helper(i, visited, stack) == True:
-                    return True
-
+        # iterate over each vertex to check for cycle
+        parent = None
+        for v in self.adj_list:
+            if self.has_cycle_helper(v, parent, visited):
+                return True
         return False
 
-    def has_cycle_helper(self, i, visited, stack):
+    def has_cycle_helper(self, v, parent, visited):
         """
         Recursive helper function for has_cycle_helper method
         """
-        vertices = self.get_vertices()
-        # A recursive function that uses
-        # visited[] and parent to detect
-        # cycle in subgraph reachable from vertex v
+        # 0 represent cycle checking is in progress
+        # 1 represent cycle checking is done
 
-        # set visited and stack status to True
-        visited[vertices[i]] = True
-        stack[vertices[i]] = True
+        # basecase - if the vertex is already visited and done checking for cycle
+        # there is no cycle
+        if v in visited and visited[v] == 1:
+            return False
 
-        # recur for all the vertices
-        # adjacent to this vertex
-        parent = None
-        edges = self.adj_list[vertices[i]]
+        # set the given vertex to 0 
+        # start cycle checking
+        visited[v] = 0
 
-        for j in range(len(vertices)):
-            cur = vertices[j]  # debugging
-            if cur not in edges:
-                continue
-            # if the vertex is not visited then repeat the process
-            if visited[cur] == False:
-                parent = vertices[i]
-                if self.has_cycle_helper(j, visited, stack) == True:
+        # check all edges u for vertex v
+        for u in self.adj_list[v]:
+            if u not in visited:
+                if self.has_cycle_helper(u, v, visited):
                     return True
-                else:                    
-                    if self.has_cycle_helper(parent, visited, stack) == True:
-                        return True
-                    else:
-                        continue
-
-            elif visited[cur] == True and stack[cur] == True and cur != parent:
-                return True
-            # if an adjacent vertex is visited and not parent of current vertex,
+            # if the edge is visited and is not parent of current vertex
             # the graph has a cycle
+            else:
+                if u != parent and visited[u] == 0:
+                    return True
 
-        stack[vertices[i]] = False
+        # after checking for all edges, mark the vertex as done
+        visited[v] = 1
         return False
 
 
@@ -470,7 +447,7 @@ if __name__ == '__main__':
         print(g.count_connected_components(), end=' ')
     print()
 
-    """
+    
     print("\nPDF - method has_cycle() example 1")
     print("----------------------------------")
     edges = ['AE', 'AC', 'BE', 'CE', 'CD', 'CB', 'BD', 'ED', 'BH', 'QG', 'FG']
@@ -486,5 +463,4 @@ if __name__ == '__main__':
         u, v = edge
         g.add_edge(u, v) if command == 'add' else g.remove_edge(u, v)
         print('{:<10}'.format(case), g.has_cycle())
-    """
     
